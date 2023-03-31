@@ -1,0 +1,51 @@
+user: id, name, surname, username, password
+chat: id, fromId, toId
+message: id, chatId, content, attachId, messageType
+channel: id, title, description, subscribers_count, owner_id
+group: id, title, description, subscribers_count, owner_id
+channel_subscription: id, channel_id, subscriber_id(user_id)
+group_subscription: id, group_id, subscriber_id(user_id)
+
+Auth
+http://localhost:8080/auth
+{
+  username, password
+}
+
+Register
+http://localhost:8080/register
+
+{
+  name, surname, username, password
+}
+
+Create chat
+http://localhost:8080/chat/create?to=2
+
+Get chat id
+http://localhost:8080/chat/get?to=2
+
+Send message
+http://localhost:8080/message/send
+
+{
+  chatId, content, attachId, messageType
+}
+
+Get messages by chatId
+http://localhost:8080/message/get/chat/{id}
+
+Get chats by user id
+http://localhost:8080/chat/get/user
+
+Get subscribed channels
+http://localhost:8080/channel/get
+
+Get subscibed groups
+http://localhost:8080/group/get
+
+Subscribe channel
+http://localhost:8080/channel/subscribe/{channelid}
+
+Subscribe group
+http://localhost:8080/group/subscribe/{groupId}
